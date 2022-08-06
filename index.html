@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="this.js"></script>
+    <title>Document</title>
+
+    <style>
+        #winner{
+            width: 20%;
+            margin: auto;
+            margin-top: 10%;
+            padding-top: 2%;
+            /* border: 1px solid red; */
+            height: 50px;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            text-align: center;
+            background-color: black;
+            color: white;
+            font-size: larger;
+        }
+
+        .team{
+            display: flex;
+            width: 20%;
+            height: 70px;
+            /* border: 1px solid green; */
+            gap: 10px;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        #member-1, #member-2, #member-3{
+            width: 33%;
+            /* border: 1px solid blue; */
+            height: auto;
+            border-radius: 40%;
+            text-align: center;
+            padding-top: 9%;
+            /* background-color: blue; */
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        .buton{
+            width: 10%;
+            margin: auto;
+            margin-top: 2%;
+        }
+
+        #roll{
+            padding: 8px 10px 8px 10px;
+            border-radius: 10px;
+            color: white;
+            background-color: teal;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="winner">
+
+    </div>
+
+    <div class="team">
+        <div id="member-1"></div>
+        <div id="member-2"></div>
+        <div id="member-3"></div>
+    </div>
+    
+    <div class="buton">
+        <button id="roll">ROLL THE DICE</button>
+    </div>
+
+</body>
+</html>
+
+
+<script>
+
+// event.preventDefault();
+
+ let text1 = document.querySelector("#member-1")
+ let text2 = document.querySelector("#member-2")
+ let text3 = document.querySelector("#member-3")
+
+document.querySelector("#roll").addEventListener("click" , (i)=>{
+    event.preventDefault();
+    
+    text1.innerText = Math.floor((Math.random() * 6) + 1);
+    text2.innerText = Math.floor((Math.random() * 6) + 1);
+    text3.innerText = Math.floor((Math.random() * 6) + 1);
+
+
+if(text2.innerText<text1.innerText && text1.innerText>text3.innerText && text2.innerText>text3.innerText){
+    document.getElementById("member-2").style.backgroundColor = "yellow";
+    document.getElementById("member-3").style.backgroundColor = "red";
+    document.getElementById("member-1").style.backgroundColor = "green";
+    document.querySelector("#winner").innerText="winner is first box"
+
+}else if(text2.innerText<text1.innerText && text1.innerText>text3.innerText && text3.innerText>text2.innerText){
+    document.getElementById("member-2").style.backgroundColor = "red";
+    document.getElementById("member-3").style.backgroundColor = "yellow";
+    document.getElementById("member-1").style.backgroundColor = "green";
+    document.querySelector("#winner").innerText="winner is first box"
+
+
+
+}else if(text2.innerText>text1.innerText && text2.innerText>text3.innerText && text1.innerText>text3.innerText){
+    document.getElementById("member-1").style.backgroundColor = "yellow";
+    document.getElementById("member-3").style.backgroundColor = "red";
+    document.getElementById("member-2").style.backgroundColor = "green";
+    document.querySelector("#winner").innerText="winner is second box"
+
+}else if(text2.innerText>text1.innerText && text2.innerText>text3.innerText && text3.innerText>text1.innerText){
+    document.getElementById("member-1").style.backgroundColor = "red";
+    document.getElementById("member-3").style.backgroundColor = "yellow";
+    document.getElementById("member-2").style.backgroundColor = "green";
+    document.querySelector("#winner").innerText="winner is second box"
+
+
+    
+
+}else if(text3.innerText>text1.innerText && text3.innerText>text2.innerText && text1.innerText>text2.innerText){
+    document.getElementById("member-2").style.backgroundColor = "red";
+    document.getElementById("member-1").style.backgroundColor = "yellow";
+    document.getElementById("member-3").style.backgroundColor = "green";
+    document.querySelector("#winner").innerText="winner is third box"
+
+}else if(text3.innerText>text1.innerText && text3.innerText>text2.innerText && text2.innerText>text1.innerText){
+    document.getElementById("member-2").style.backgroundColor = "yellow";
+    document.getElementById("member-1").style.backgroundColor = "red";
+    document.getElementById("member-3").style.backgroundColor = "green";
+    document.querySelector("#winner").innerText="winner is third box"
+} 
+})
+// let winner = document.querySelector("#winner")
+
+
+// if(text2.innerText < text1.innerText ){
+//     // event.preventDefault(); 
+//     document.getElementById("winner").style.backgroundColor = "#ff0000";
+// }
+// else if(text1.innerText < text2.innerText ){
+//     // event.preventDefault(); 
+//     document.getElementById("winner").style.backgroundColor = "green";
+// }
+// else {
+//     document.getElementById("winner").style.backgroundColor = "white";
+// }
+// })
+</script>
